@@ -5,7 +5,7 @@ class Todo extends React.Component {
         return (
             <li 
                 key={this.props.key} 
-                className={ this.props.completed ? "completed" : "incomplete" } >
+                className={ "todo " + (this.props.completed ? "completed" : "incomplete") } >
                 {this.props.text}
             </li>
         );

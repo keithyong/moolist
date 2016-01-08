@@ -1,0 +1,12 @@
+.todo {
+    cursor: pointer;
+    list-style-type: none;
+}
+
+.todo.completed {
+    text-decoration: line-through;
+}
+
+.todo.incomplete {
+    text-decoration: none;
+}

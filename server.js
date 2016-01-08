@@ -1,10 +1,13 @@
 var express = require('express');
 var config = require('./config');
 var pg = require('pg');
+var path = require('path');
 var app = express();
 
 app.set('view engine', 'jade');
 
+// Serve static content
+app.use(express.static(path.join(__dirname, 'public')));
 // React stuff
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
