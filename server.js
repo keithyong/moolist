@@ -3,25 +3,54 @@ var config = require('./config');
 var pg = require('pg');
 var app = express();
 
+app.set('view engine', 'jade');
+
+// React stuff
+var React = require('react');
+var ReactDOMServer = require('react-dom/server');
+var ReactApp = React.createFactory(require('./components/App.jsx').default);
+
 var pg_err_handler = (res, err) => {
     res.status(500);
     res.send(err);
 };
 
-app.get('/todo', (req, res, next) => {
+var grabTodos = (callback) => {
     pg.connect(config.pg_connection_string, (err, client, done) => {
         if (err) {
             console.error(err);
-            pg_err_handler(res, err);
+            callback(err, null);
         } else {
             client.query('SELECT * FROM todo', (err, result) => {
                 if (err) {
                     pg_err_handler(res, err);
                 } else {
-                    res.status(200);
-                    res.send(result.rows);
+                    callback(null, result.rows);
                 }
             });
+        }
+    });
+};
+
+app.get('/', (req, res, next) => {
+    grabTodos((err, rows) => {
+        if (err) {
+            pg_err_handler(err, res);
+        } else {
+            var reactHtml = ReactDOMServer.renderToString(<ReactApp todos={rows} />);
+            res.render('index.jade', { reactOutput: reactHtml });
+        }
+
+    });
+});
+
+app.get('/todo', (req, res, next) => {
+    grabTodos((err, rows) => {
+        if (err) {
+            pg_err_handler(res, err);
+        } else {
+            res.status(200);
+            res.send(result.rows);
         }
     });
 });
