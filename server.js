@@ -3,6 +3,7 @@ var config = require('./config');
 var pg = require('pg');
 var path = require('path');
 var app = express();
+import { grabTodos, insertTodo } from './database/todo';
 
 app.set('view engine', 'jade');
 
@@ -16,23 +17,6 @@ var ReactApp = React.createFactory(require('./components/App.jsx').default);
 var pg_err_handler = (res, err) => {
     res.status(500);
     res.send(err);
-};
-
-var grabTodos = (callback) => {
-    pg.connect(config.pg_connection_string, (err, client, done) => {
-        if (err) {
-            console.error(err);
-            callback(err, null);
-        } else {
-            client.query('SELECT * FROM todo', (err, result) => {
-                if (err) {
-                    pg_err_handler(res, err);
-                } else {
-                    callback(null, result.rows);
-                }
-            });
-        }
-    });
 };
 
 app.get('/', (req, res, next) => {
@@ -54,6 +38,17 @@ app.get('/todo', (req, res, next) => {
         } else {
             res.status(200);
             res.send(result.rows);
+        }
+    });
+});
+
+app.post('/todo/:text', (req, res, next) => {
+    insertTodo(req.params.text, (err, rows) => {
+        if (err) {
+            pg_err_handler(res, err);
+        } else {
+            res.status(200);
+            res.send("Successfully posted a new todo.");
         }
     });
 });

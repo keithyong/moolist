@@ -6,6 +6,6 @@ create database todo;
 drop table if exists todo;
 create table todo (
     id          serial primary key,
-    todo        text,
+    text        text,
     completed   boolean default false
 );
