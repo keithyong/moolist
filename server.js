@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // React stuff
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
-var ReactApp = React.createFactory(require('./components/App.jsx').default);
+var App = React.createFactory(require('./components/App.jsx').default);
 
 var pg_err_handler = (res, err) => {
     res.status(500);
@@ -24,7 +24,7 @@ app.get('/', (req, res, next) => {
         if (err) {
             pg_err_handler(err, res);
         } else {
-            var reactHtml = ReactDOMServer.renderToString(<ReactApp todos={rows} />);
+            var reactHtml = ReactDOMServer.renderToString(<App todos={rows} />);
             res.render('index.jade', { reactOutput: reactHtml });
         }
 
@@ -56,7 +56,6 @@ app.post('/todo/:text', (req, res, next) => {
 app.post('/check/:id', (req, res) => {
     pg.connect(config.pg_connection_string, (err, client, done) => {
         if (err) {
-            console.error(err);
             pg_err_handler(res, err);
         } else {
             client.query('UPDATE todo SET completed = NOT completed WHERE todo.id=$1', [req.params.id], (err, result) => {

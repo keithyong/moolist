@@ -1,7 +1,7 @@
 {
     "apps" : [{
         "name": "todo",
-        "script": "./server.js",
+        "script": "server.js",
         "watch": true,
         "exec_interpreter": "babel-node",
         "exec_mode": "fork"

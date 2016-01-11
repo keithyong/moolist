@@ -24,7 +24,6 @@ function todosReducer(state = initialState, action) {
         case 'COMPLETE_TODO':
             return state;
         default:
-            console.log(state);
             return state;
     }
 }
@@ -32,12 +31,10 @@ function todosReducer(state = initialState, action) {
 let todosStore = createStore(todosReducer);
 
 todosStore.dispatch({type: 'ADD_TODO', text: 'test todo'});
-console.log(todosStore.getState());
 
 class App extends React.Component {
     render() {
         let todos =  todosStore.getState().map(todo => <Todo key={todo.id} completed={todo.completed} text={todo.text}/>);
-        console.log(todos);
         return (
             <div>
                 <h1>Todo List App</h1>
