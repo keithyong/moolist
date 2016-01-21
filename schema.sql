@@ -9,3 +9,8 @@ create table todo (
     text        text,
     completed   boolean default false
 );
+
+insert into todo(text) values ('test todo 1');
+insert into todo(text) values ('test todo 2');
+insert into todo(text) values ('test todo 3');
+insert into todo(text) values ('test todo 4');
