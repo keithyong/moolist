@@ -85,7 +85,6 @@ app.post('/todo/:text', (req, res, next) => {
         }
     });
 });
-
 app.post('/check/:id', (req, res) => {
     pg.connect(config.pg_connection_string, (err, client, done) => {
         if (err) {

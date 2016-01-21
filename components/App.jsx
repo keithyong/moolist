@@ -11,6 +11,8 @@ class App extends React.Component {
             <div>
                 <h1>Todo List App</h1>
                 { todos }
+                <input></input>
+                <button onClick={this.props.dispatch({type: 'ADD_TODO', text: 'client_side_todo_item'})}>Add Todo</button>
             </div>
         );
     }
