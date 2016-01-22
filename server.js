@@ -30,7 +30,8 @@ function renderFullPage(html, initialState) {
         <!doctype html>
         <html>
             <head>
-                <title>Redux Universal Example</title>
+                <title>Keith\'s Todo List</title>
+                <link rel="stylesheet" type="text/css" href="/css/style.css">
             </head>
         <body>
         <div id="app">${html}</div>
