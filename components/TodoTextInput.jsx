@@ -17,8 +17,14 @@ class TodoTextInput extends React.Component {
 
     render() {
         return (
-            <input
-                onKeyDown={this.handleSubmit.bind(this)}
+            <div>
+                <input
+                    onKeyDown={this.handleSubmit.bind(this)}
+                />
+                <button onClick={this.handleSubmit.bind(this)}>Add Todo</button>
+            </div>
         )
     }
 }
+
+export default TodoTextInput

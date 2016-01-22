@@ -1,9 +1,9 @@
 import React from 'react'
 import Todo from './Todo.jsx'
+import TodoTextInput from './TodoTextInput.jsx'
 import { createStore } from 'redux'
 import { connect } from 'react-redux'
 import config from '../config'
-
 
 class App extends React.Component {
     render() {
@@ -11,9 +11,8 @@ class App extends React.Component {
         return (
             <div>
                 <h1>{ config.app_title }</h1>
-                <input></input>
                 <img src="/images/vapor.gif" id="vapor"></img>
-                <button onClick={this.props.dispatch({type: 'ADD_TODO', text: 'client_side_todo_item'})}>Add Todo</button>
+                <TodoTextInput onSubmit={(text) => console.log(text)} />
                 { todos }
             </div>
         )
