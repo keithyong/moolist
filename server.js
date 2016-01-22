@@ -49,6 +49,7 @@ function handleRender(req, res) {
 
     console.log('+-Server Rendering-+ Received request')
     grabTodos((err, rows) => {
+        console.log("+-Server Rendering-+ grabTodos callback")
         if (err) {
             pg_err_handler(err, res)
         } else {
@@ -67,7 +68,7 @@ function handleRender(req, res) {
         }
     })
 }
-  
+
 app.get('/', handleRender);
 app.get('/todo', (req, res, next) => {
     grabTodos((err, rows) => {
