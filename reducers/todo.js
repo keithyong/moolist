@@ -10,8 +10,8 @@ export default function todosReducer(state = [], action) {
                 ...state
             ]
         case 'COMPLETE_TODO':
-            return state;
+            return state
         default:
-            return state;
+            return state
     }
 }

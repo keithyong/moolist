@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 class Todo extends React.Component {
     render() {
@@ -8,8 +8,8 @@ class Todo extends React.Component {
                 className={ "todo " + (this.props.completed ? "completed" : "incomplete") } >
                 {this.props.text}
             </li>
-        );
+        )
     }
 }
 
-export default Todo;
+export default Todo

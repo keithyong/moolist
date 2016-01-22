@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 class TodoTextInput extends React.Component {
     constructor(props, context) {
-        super(props, context);
+        super(props, context)
         this.state = {
             text: this.props.text || ''
         }
@@ -11,7 +11,7 @@ class TodoTextInput extends React.Component {
     handleSubmit(e) {
         const text = e.target.value.trim()
         if (e.which === 13) {
-            this.props.onSubmit(text);
+            this.props.onSubmit(text)
         }
     }
 
