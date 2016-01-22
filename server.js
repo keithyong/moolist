@@ -47,13 +47,10 @@ function renderFullPage(html, initialState) {
 function handleRender(req, res) {
     let initialState
 
-    console.log('+-Server Rendering-+ Received request')
     grabTodos((err, rows) => {
-        console.log("+-Server Rendering-+ grabTodos callback")
         if (err) {
             pg_err_handler(err, res)
         } else {
-            console.log('+-Server Rendering-+ Grabbed DB data')
             // Make initial state equal to database data
             initialState = rows
             const store = createStore(todoApp, initialState)
@@ -63,8 +60,6 @@ function handleRender(req, res) {
                 </Provider>
             )
             res.send(renderFullPage(html, initialState))
-            console.log('+-Server Rendering-+ Success!')
-            console.log(' ')
         }
     })
 }
@@ -109,4 +104,3 @@ app.post('/check/:id', (req, res) => {
 })
 
 app.listen(config.port)
-console.log('Listenining on port ' + config.port)
