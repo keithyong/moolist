@@ -7,6 +7,8 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import todoApp from './reducers/todo'
 import { renderToString } from 'react-dom/server'
+import todoRouter from './routes/todoRouter'
+import checkRouter from './routes/checkRouter'
 
 let app = express()
 
@@ -19,11 +21,6 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 let App = React.createFactory(require('./components/App.jsx').default)
 
-
-let pg_err_handler = (res, err) => {
-    res.status(500)
-    res.send(err)
-}
 
 function renderFullPage(html, initialState) {
     return `
@@ -65,42 +62,7 @@ function handleRender(req, res) {
 }
 
 app.get('/', handleRender);
-app.get('/todo', (req, res, next) => {
-    grabTodos((err, rows) => {
-        if (err) {
-            pg_err_handler(res, err)
-        } else {
-            res.status(200)
-            res.send(result.rows)
-        }
-    })
-})
-
-app.post('/todo/:text', (req, res, next) => {
-    insertTodo(req.params.text, (err, rows) => {
-        if (err) {
-            pg_err_handler(res, err)
-        } else {
-            res.status(200)
-            res.send("Successfully posted a new todo.")
-        }
-    })
-})
-app.post('/check/:id', (req, res) => {
-    pg.connect(config.pg_connection_string, (err, client, done) => {
-        if (err) {
-            pg_err_handler(res, err)
-        } else {
-            client.query('UPDATE todo SET completed = NOT completed WHERE todo.id=$1', [req.params.id], (err, result) => {
-                if (err) {
-                    pg_err_handler(res, err)
-                } else {
-                    res.status(200)
-                    res.send('Successfully checked/unchecked todo item.')
-                }
-            })
-        }
-    })
-})
+app.use(todoRouter);
+app.use(checkRouter);
 
 app.listen(config.port)
