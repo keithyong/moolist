@@ -2,6 +2,7 @@ import pg from 'pg'
 import pgErrHandler from './pgErrHandler'
 import config from '../config'
 import express from 'express'
+import { grabTodos, insertTodo } from '../database/todo'
 let router = express.Router()
 
 router.get('/todo', (req, res, next) => {

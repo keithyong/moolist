@@ -7,12 +7,20 @@ import config from '../config'
 
 class App extends React.Component {
     render() {
-        let todos = this.props.todos.map(todo => <Todo key={todo.id} completed={todo.completed} text={todo.text}/>)
+        let todos = this.props.todos.map(
+                todo =>
+                    <Todo 
+                        key={todo.id}
+                        completed={todo.completed}
+                        text={todo.text}
+                    />
+        )
+
         return (
             <div>
                 <h1>{ config.app_title }</h1>
                 <img src="/images/vapor.gif" id="vapor"></img>
-                <TodoTextInput onSubmit={(text) => console.log(text)} />
+                <TodoTextInput onSubmit={(text) => this.props.dispatch({type: 'ADD_TODO', text: text})} />
                 { todos }
             </div>
         )

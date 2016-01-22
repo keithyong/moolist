@@ -1,28 +1,42 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node',
-1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'run',
-1 verbose cli   'babel-node',
-1 verbose cli   'server.js' ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
 2 info using npm@3.3.6
 3 info using node@v5.0.0
-4 verbose stack Error: missing script: babel-node
-4 verbose stack     at run (/usr/local/lib/node_modules/npm/lib/run-script.js:148:19)
-4 verbose stack     at /usr/local/lib/node_modules/npm/lib/run-script.js:58:5
-4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:345:5
-4 verbose stack     at checkBinReferences_ (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:309:45)
-4 verbose stack     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:343:3)
-4 verbose stack     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:113:5)
-4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:300:12
-4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:76:16
-4 verbose stack     at tryToString (fs.js:414:3)
-4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:401:12)
-5 verbose cwd /root/todo-list
-6 error Linux 3.13.0-43-generic
-7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "babel-node" "server.js"
-8 error node v5.0.0
-9 error npm  v3.3.6
-10 error missing script: babel-node
-11 error If you need help, you may report this error at:
-11 error     <https://github.com/npm/npm/issues>
-12 verbose exit [ 1, true ]
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle todo-list@1.0.0~prestart: todo-list@1.0.0
+6 silly lifecycle todo-list@1.0.0~prestart: no script for prestart, continuing
+7 info lifecycle todo-list@1.0.0~start: todo-list@1.0.0
+8 verbose lifecycle todo-list@1.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle todo-list@1.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/root/todo-list/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+10 verbose lifecycle todo-list@1.0.0~start: CWD: /root/todo-list
+11 silly lifecycle todo-list@1.0.0~start: Args: [ '-c', 'babel-node server.js' ]
+12 silly lifecycle todo-list@1.0.0~start: Returned: code: 1  signal: null
+13 info lifecycle todo-list@1.0.0~start: Failed to exec start script
+14 verbose stack Error: todo-list@1.0.0 start: `babel-node server.js`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:233:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:818:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+15 verbose pkgid todo-list@1.0.0
+16 verbose cwd /root/todo-list
+17 error Linux 3.13.0-43-generic
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+19 error node v5.0.0
+20 error npm  v3.3.6
+21 error code ELIFECYCLE
+22 error todo-list@1.0.0 start: `babel-node server.js`
+22 error Exit status 1
+23 error Failed at the todo-list@1.0.0 start script 'babel-node server.js'.
+23 error This is most likely a problem with the todo-list package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     babel-node server.js
+23 error You can get their info via:
+23 error     npm owner ls todo-list
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
