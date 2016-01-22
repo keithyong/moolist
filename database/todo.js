@@ -8,7 +8,6 @@ export function grabTodos(callback) {
             callback(err, null)
             client.end()
         } else {
-            console.error(err)
             client.query('SELECT * FROM todo ORDER BY completed', (err, result) => {
                 if (err) {
                     pg_err_handler(res, err)
