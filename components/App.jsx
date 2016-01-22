@@ -2,6 +2,7 @@ import React from 'react'
 import Todo from './Todo.jsx'
 import { createStore } from 'redux'
 import { connect } from 'react-redux'
+import config from '../config'
 
 
 class App extends React.Component {
@@ -9,7 +10,7 @@ class App extends React.Component {
         let todos = this.props.todos.map(todo => <Todo key={todo.id} completed={todo.completed} text={todo.text}/>)
         return (
             <div>
-                <h1>Todo List App</h1>
+                <h1>{ config.app_title }</h1>
                 { todos }
                 <input></input>
                 <button onClick={this.props.dispatch({type: 'ADD_TODO', text: 'client_side_todo_item'})}>Add Todo</button>
