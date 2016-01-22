@@ -25,6 +25,17 @@
 
 body {
     font-family: "comic-sans";
+}
+
+body::after {
+    content: "";
+    opacity: 0.6;
     background-image: url("/images/vapor_2.jpg");
-    background-repeat: repeat;
+    background-position: top;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }
