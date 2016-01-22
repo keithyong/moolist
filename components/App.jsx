@@ -12,6 +12,7 @@ class App extends React.Component {
             <div>
                 <h1>{ config.app_title }</h1>
                 <input></input>
+                <img src="/images/vapor.gif" id="vapor"></img>
                 <button onClick={this.props.dispatch({type: 'ADD_TODO', text: 'client_side_todo_item'})}>Add Todo</button>
                 { todos }
             </div>
