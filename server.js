@@ -9,18 +9,16 @@ import { renderToString } from 'react-dom/server'
 import { grabTodos } from './database/todo'
 import todoRouter from './routes/todoRouter'
 import checkRouter from './routes/checkRouter'
-
-let app = express()
-
-// Serve static content
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.static(path.join(__dirname, 'dist')))
-
-// React stuff
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
+
+let app = express()
 let App = React.createFactory(require('./components/App.jsx').default)
 
+app.use(todoRouter)
+app.use(checkRouter)
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'dist')))
 
 function renderFullPage(html, initialState) {
     return `
@@ -43,7 +41,7 @@ function renderFullPage(html, initialState) {
         `
 }
 
-function handleRender(req, res) {
+app.get('/', (req, res) => {
     let initialState
 
     grabTodos((err, rows) => {
@@ -63,8 +61,5 @@ function handleRender(req, res) {
     })
 }
 
-app.get('/', handleRender);
-app.use(todoRouter);
-app.use(checkRouter);
-
+console.log('Listening on port ' + config.port)
 app.listen(config.port)
