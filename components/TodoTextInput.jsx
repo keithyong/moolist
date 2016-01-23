@@ -8,20 +8,27 @@ class TodoTextInput extends React.Component {
         }
     }
 
-    handleSubmit(e) {
-        const text = e.target.value.trim()
+    handleInputEnter(e) {
+        const text = this.textInput.value.trim()
         if (e.which === 13) {
+            this.textInput.value = ''
             this.props.onSubmit(text)
         }
+    }
+
+    handleButtonClick(e) {
+        this.props.onSubmit(this.textInput.value.trim())
+        this.textInput.value = ''
     }
 
     render() {
         return (
             <div>
                 <input
-                    onKeyDown={this.handleSubmit.bind(this)}
+                    ref={(ref) => this.textInput = ref}
+                    onKeyDown={this.handleInputEnter.bind(this)}
                 />
-                <button onClick={this.handleSubmit.bind(this)}>Add Todo</button>
+                <button onClick={this.handleButtonClick.bind(this)}>Add Todo</button>
             </div>
         )
     }
