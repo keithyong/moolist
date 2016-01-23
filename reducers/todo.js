@@ -4,7 +4,7 @@ export default function todosReducer(state = [], action) {
             fetch('./todo/' + action.text, {method: 'post'})
             return [
                 {
-                    id: 24,
+                    id: action.id,
                     completed: false,
                     text: action.text
                 },
