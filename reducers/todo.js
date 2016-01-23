@@ -25,6 +25,13 @@ export default function todosReducer(state = [], action) {
                 }
 
                 return todo
+            }).sort((a, b) => {
+                // Sort by completed
+                const greater = a.completed - b.completed
+                if (greater) return greater
+
+                // If there is a tie, sort by ID
+                return b.id - a.id
             })
         default:
             return state
