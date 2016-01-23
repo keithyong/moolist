@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
             res.send(renderFullPage(html, initialState))
         }
     })
-}
+})
 
 console.log('Listening on port ' + config.port)
 app.listen(config.port)
