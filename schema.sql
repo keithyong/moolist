@@ -9,5 +9,5 @@ create table todo (
     text                text,
     completed           boolean default false,
     creation_time       timestamptz default now(),
-    last_toggle_time    timestamptz default now()
+    completion_time     timestamptz default null
 );
