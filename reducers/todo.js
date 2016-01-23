@@ -4,7 +4,6 @@ export default function todosReducer(state = [], action) {
             fetch('./todo/' + action.text, {
                 method: 'post'
             }).then((res) => {
-                console.log(res)
             });
             return [
                 {
@@ -14,8 +13,15 @@ export default function todosReducer(state = [], action) {
                 },
                 ...state
             ]
-        case 'COMPLETE_TODO':
-            return state
+        case 'TOGGLE_TODO':
+            return state.map((todo) => {
+                if (todo.id === action.id) {
+                    todo.completed = !todo.completed
+                    return todo
+                }
+
+                return todo
+            })
         default:
             return state
     }

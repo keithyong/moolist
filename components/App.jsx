@@ -11,8 +11,13 @@ class App extends React.Component {
                 todo =>
                     <Todo 
                         key={todo.id}
+                        id={todo.id}
                         completed={todo.completed}
                         text={todo.text}
+                        onToggle={(id) => {
+                                this.props.dispatch({type:'TOGGLE_TODO', id: id})
+                            }
+                        }
                     />
         )
 

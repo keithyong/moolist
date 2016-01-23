@@ -11,9 +11,11 @@
     text-decoration: none;
 }
 
+h1 {
+    margin: 0;
+}
 #vapor {
     max-width: 200px;
-    display: inline-block;
-    float: right;
+    display: block;
     margin-bottom: 10px;
 }

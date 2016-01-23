@@ -8,10 +8,15 @@ import todoApp from './reducers/todo'
 const initialState = window.__INITIAL_STATE__
 const store = createStore(todoApp, initialState)
 
-render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('app')
-)
+function renderApp() {
+    render(
+        <Provider store={store}>
+            <App />
+        </Provider>,
+        document.getElementById('app')
+    )
+}
 
+renderApp()
+
+store.subscribe(renderApp)
