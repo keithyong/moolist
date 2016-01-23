@@ -16,8 +16,8 @@ router.get('/todo', (req, res, next) => {
     })
 })
 
-router.post('/todo/:text', (req, res, next) => {
-    insertTodo(req.params.text, (err, rows) => {
+router.post('/todo', (req, res, next) => {
+    insertTodo(req.body, (err, rows) => {
         if (err) {
             pgErrHandler(res, err)
         } else {

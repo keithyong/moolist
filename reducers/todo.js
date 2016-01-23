@@ -1,7 +1,9 @@
 export default function todosReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_TODO':
-            fetch('./todo/' + action.text, {method: 'post'})
+            let header = new Headers()
+            header.append('Content-Type', 'text/plain');
+            fetch('./todo', {method: 'post', body: action.text, header: header})
             
             // Get the maximum ID from the list of todo's
             const todoWithMaxId = state.reduce((max, todo) => { 

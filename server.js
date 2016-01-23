@@ -1,4 +1,5 @@
 import express from 'express'
+import bodyParser from 'body-parser'
 import config from './config'
 import pg from 'pg'
 import path from 'path'
@@ -15,6 +16,7 @@ import ReactDOMServer from 'react-dom/server'
 let app = express()
 let App = React.createFactory(require('./components/App.jsx').default)
 
+app.use(bodyParser.text())
 app.use(todoRouter)
 app.use(checkRouter)
 app.use(express.static(path.join(__dirname, 'public')))
