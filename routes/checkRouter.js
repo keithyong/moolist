@@ -10,7 +10,7 @@ router.post('/check/:id', (req, res) => {
             pgErrHandler(res, err)
             client.end()
         } else {
-            client.query('UPDATE todo SET completed = NOT completed WHERE todo.id=$1', [req.params.id], (err, result) => {
+            client.query('UPDATE todo SET completed = NOT completed, last_toggle_time = now() WHERE todo.id=$1', [req.params.id], (err, result) => {
                 if (err) {
                     pgErrHandler(res, err)
                     client.end()
