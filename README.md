@@ -1,2 +1,7 @@
 #todo-list
-My personal todo list. Just a fun little project :) aiming to learn redux and a bit of HTTP Auth through this.
+My personal todo list, to learn Redux and server side rendering.
+
+## Setup
+Clone and run the `init.sh` script
+
+Use `npm start` to run the server
