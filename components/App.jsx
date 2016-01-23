@@ -23,11 +23,11 @@ class App extends React.Component {
 
         return (
             <div>
-                <h1>{ config.app_title }</h1>
-                <h2>良い仕事をするためにやる気保ちます！</h2>
-                <div className="gallery">
+                <header>
+                    <h1>{ config.app_title }</h1>
+                    <h2>良い仕事をするためにやる気保ちます！</h2>
                     <img src="/images/vapor.gif" id="vapor"></img>
-                </div>
+                </header>
                 <TodoTextInput onSubmit={(text) => this.props.dispatch({type: 'ADD_TODO', text: text})} />
                 { todos }
             </div>
