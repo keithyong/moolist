@@ -18,6 +18,7 @@ export default function todosReducer(state = [], action) {
             ]
         case 'TOGGLE_TODO':
             fetch('./check/' + action.id, {method: 'post'})
+
             return state.map((todo) => {
                 if (todo.id === action.id) {
                     todo.completed = !todo.completed
