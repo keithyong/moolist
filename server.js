@@ -28,8 +28,9 @@ function renderFullPage(html, initialState) {
         <html>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-                <title>Keith\'s Todo List</title>
+                <title>${config.app_title}</title>
                 <link rel="stylesheet" type="text/css" href="/css/style.css">
+                <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
             </head>
         <body>
         <div id="app">${html}</div>

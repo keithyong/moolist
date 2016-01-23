@@ -1,7 +1,24 @@
+html {
+    font-family: 'Droid Sans Mono' ;
+    font-size: 12px;
+    color: #3A69B0;
+    background: #D6ECEC;
+    background: url("http://i.imgur.com/hUrcrE6.png");
+}
+
+body {
+    max-width: 900px;
+}
+
 .todo {
+    letter-spacing: 5px;
     cursor: pointer;
     list-style-type: none;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid;
 }
+
 
 .todo.completed {
     text-decoration: line-through;
@@ -13,9 +30,30 @@
 
 h1 {
     margin: 0;
+    color: #FF839D;
+    font-size: 4rem;
 }
+
 #vapor {
     max-width: 200px;
     display: block;
     margin-bottom: 10px;
+}
+
+::selection {
+    background:#81F7C1;
+    color:#22153E;
+    text-shadow:none;
+}
+/* Safari & Chrome - Webkit Rendering */
+::-webkit-selection {
+    background:#81F7C1;
+    color:#22153E;
+    text-shadow:none;
+}
+/* Mozilla based - Gecko Rendering */ 
+::-moz-selection {
+    background:#81F7C1;
+    color:#22153E;
+    text-shadow:none;
 }

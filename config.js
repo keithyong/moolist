@@ -1,5 +1,5 @@
 module.exports = {
     pg_connection_string: "postgres://postgres:postgres@localhost:5432/todo",
     port: "8084",
-    app_title: "keiths todo list"
+    app_title: "キースの作業の一覧"
 }
