@@ -5,12 +5,9 @@ create database todo;
 
 drop table if exists todo;
 create table todo (
-    id          serial primary key,
-    text        text,
-    completed   boolean default false
+    id                  serial primary key,
+    text                text,
+    completed           boolean default false,
+    creation_time       timestamptz default now(),
+    last_toggle_time    timestamptz default now()
 );
-
-insert into todo(text) values ('test todo 1');
-insert into todo(text) values ('test todo 2');
-insert into todo(text) values ('test todo 3');
-insert into todo(text) values ('test todo 4');
