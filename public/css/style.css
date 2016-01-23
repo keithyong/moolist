@@ -7,6 +7,7 @@ html {
 
 body {
     max-width: 900px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -24,19 +25,21 @@ h2 {
 .todo {
     cursor: pointer;
     list-style-type: none;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(100,100,100,0.5);
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    font-weight: 700;
 }
 
 .todo.completed {
     text-decoration: line-through;
+    background-color: rgba(0,255,0,0.1);
 }
 
 .todo.incomplete {
@@ -72,5 +75,9 @@ h2 {
 
     h2 {
         font-size: 1rem;
+    }
+
+    body {
+        margin: 10px;
     }
 }
