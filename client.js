@@ -11,7 +11,7 @@ const store = createStore(todoApp, initialState)
 function renderApp() {
     render(
         <Provider store={store}>
-            <App client={true}/>
+            <App />
         </Provider>,
         document.getElementById('app')
     )
