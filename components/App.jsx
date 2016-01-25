@@ -26,6 +26,7 @@ class App extends React.Component {
                 <header>
                     <h1>{ config.app_title }</h1>
                     <h2>良い仕事をするためにやる気保ちます！</h2>
+                    { this.props.client ? 'hello from client' : null }
                     <img src="/images/vapor.gif" id="vapor"></img>
                 </header>
                 <TodoTextInput onSubmit={(text) => this.props.dispatch({type: 'ADD_TODO', text: text})} />

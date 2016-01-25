@@ -1,9 +1,16 @@
+import request from 'superagent'
+
 export default function todosReducer(state = [], action) {
     switch (action.type) {
         case 'ADD_TODO':
-            let header = new Headers()
-            header.append('Content-Type', 'text/plain');
-            fetch('./todo', {method: 'post', body: action.text, header: header})
+            request
+                .post('/todo')
+                .send(action.text)
+                .set('Content-Type', 'text/plain')
+                .end((err, res) => {
+                    if (err) console.log(err)
+                    else console.log(res)
+                });
             
             // Get the maximum ID from the list of todo's
             const todoWithMaxId = state.reduce((max, todo) => { 
@@ -19,7 +26,12 @@ export default function todosReducer(state = [], action) {
                 ...state
             ]
         case 'TOGGLE_TODO':
-            fetch('./check/' + action.id, {method: 'post'})
+            request
+                .post('/check/' + action.id)
+                .end((err, res) => {
+                    if (err) console.log(err)
+                    else console.log(res)
+                });
 
             return state.map((todo) => {
                 if (todo.id === action.id) {
