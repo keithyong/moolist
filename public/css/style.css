@@ -10,6 +10,10 @@ body {
     margin: 0 auto;
 }
 
+h1, h2 {
+    padding: 10px;
+}
+
 h1 {
     margin: 0;
     color: #FF839D;
@@ -18,16 +22,26 @@ h1 {
 
 h2 {
     font-size: 1.5rem;
-    color: #767070;
+    color: #AAA;
     margin: 0;
+}
+
+header {
+    background: url('http://i.imgur.com/jta82Fv.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 10%;
+    min-height: 200px;
+    padding: 30px;
+    margin-bottom: 20px;
 }
 
 .todo {
     cursor: pointer;
     list-style-type: none;
+    display: block;
     padding-top: 6px;
     padding-bottom: 6px;
-    border-bottom: 1px solid rgba(100,100,100,0.5);
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -38,8 +52,7 @@ h2 {
 }
 
 .todo.completed {
-    text-decoration: line-through;
-    background-color: rgba(0,255,0,0.1);
+    color: #ccc;
 }
 
 .todo.incomplete {

@@ -33,7 +33,7 @@ export default function todosReducer(state = [], action) {
                     else console.log(res)
                 });
 
-            return state.map((todo) => {
+            const newState = state.map((todo) => {
                 if (todo.id === action.id) {
                     todo.completed = !todo.completed
                     return todo
@@ -48,6 +48,8 @@ export default function todosReducer(state = [], action) {
                 // If there is a tie, sort by ID
                 return b.id - a.id
             })
+
+            return newState
         default:
             return state
     }
