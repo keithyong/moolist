@@ -30,7 +30,7 @@ function renderFullPage(html, initialState) {
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <title>${config.app_title}</title>
                 <link rel="stylesheet" type="text/css" href="/css/style.css">
-                <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+                <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
             </head>
         <body>
         <div id="app">${html}</div>

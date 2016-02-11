@@ -1,47 +1,52 @@
 html {
-    font-family: 'Droid Sans Mono' ;
+    font-family: 'Ubuntu', sans-serif;;
     font-size: 12px;
-    color: #3A69B0;
-    background: #F7DDCD;
+    background: #EFEFEF;
 }
 
 body {
-    max-width: 900px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 h1, h2 {
     padding: 10px;
+    color: white;
 }
 
 h1 {
     margin: 0;
-    color: #FF839D;
     font-size: 3rem;
 }
 
 h2 {
     font-size: 1.5rem;
-    color: #AAA;
     margin: 0;
 }
 
 header {
-    background: url('http://i.imgur.com/jta82Fv.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 10%;
-    min-height: 200px;
+    background: 
+        url('http://i.imgur.com/DiRyV9q.gif') 40vw 140px no-repeat,
+        linear-gradient(
+          rgba(0, 0, 0, 0.2), 
+          rgba(0, 0, 0, 0.2)
+        ),
+        url('http://i.imgur.com/JxiP2IB.jpg') center;
+    min-height: 300px;
     padding: 30px;
     margin-bottom: 20px;
 }
 
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.todo-wrapper {
+    padding: 7px 0 7px 0;
+}
 .todo {
     cursor: pointer;
     list-style-type: none;
-    display: block;
-    padding-top: 6px;
-    padding-bottom: 6px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -53,6 +58,7 @@ header {
 
 .todo.completed {
     color: #ccc;
+    font-weight: 300;
 }
 
 .todo.incomplete {

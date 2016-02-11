@@ -24,11 +24,15 @@ class App extends React.Component {
         return (
             <div>
                 <header>
-                    <h1>{ config.app_title }</h1>
-                    <h2>良い仕事をするためにやる気保ちます！</h2>
+                    <div className="content">
+                        <h1>{ config.app_title }</h1>
+                        <h2>良い仕事をするためにやる気保ちます！</h2>
+                    </div>
                 </header>
-                <TodoTextInput onSubmit={(text) => this.props.dispatch({type: 'ADD_TODO', text: text})} />
-                { todos }
+                <div className="content">
+                    <TodoTextInput onSubmit={(text) => this.props.dispatch({type: 'ADD_TODO', text: text})} />
+                    { todos }
+                </div>
             </div>
         )
     }
