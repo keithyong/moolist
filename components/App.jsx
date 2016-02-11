@@ -31,8 +31,15 @@ class App extends React.Component {
                 </header>
                 <div className="content">
                     <TodoTextInput onSubmit={(text) => this.props.dispatch({type: 'ADD_TODO', text: text})} />
-                    { todos }
+                    <div className="todo-list">
+                        { todos }
+                    </div>
                 </div>
+                <footer>
+                    <div className="content">
+                        <p>Made by <a href="http://keithy.me">Keith Yong</a> 2016</p>
+                    </div>
+                </footer>
             </div>
         )
     }

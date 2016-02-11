@@ -42,7 +42,9 @@ header {
 }
 
 .todo-wrapper {
-    padding: 7px 0 7px 0;
+    padding: 10px;
+    background: white;
+    border-bottom: 1px solid #eee;
 }
 .todo {
     cursor: pointer;
@@ -56,6 +58,11 @@ header {
     font-weight: 700;
 }
 
+.todo-list {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
 .todo.completed {
     color: #ccc;
     font-weight: 300;
@@ -65,8 +72,15 @@ header {
     text-decoration: none;
 }
 
-#vapor {
-    max-width: 200px;
+footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background: #DDD;
+}
+
+footer, footer a {
+    color: #777;
 }
 
 ::selection {
