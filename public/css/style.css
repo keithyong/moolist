@@ -76,6 +76,20 @@ header {
     font-size: 1.25rem;
     cursor: pointer;
     padding-left: 5px;
+    padding-top: 5px;
+    color: #666;
+}
+
+.add-todo-btn:hover {
+    color: #333;
+}
+
+.todo-text-input {
+    padding: 5px 10px 5px 10px;
+    width: 200px;
+    font-size: 12px;
+    font-family: 'Ubuntu', sans-serif;
+    border: 0px;
 }
 
 footer {
@@ -87,6 +101,10 @@ footer {
 
 footer, footer a {
     color: #777;
+}
+
+footer a:hover {
+    color: #555;
 }
 
 .icon-link {

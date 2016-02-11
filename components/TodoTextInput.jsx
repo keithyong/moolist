@@ -33,6 +33,7 @@ class TodoTextInput extends React.Component {
         return (
             <div>
                 <input
+                    className="todo-text-input"
                     ref={(ref) => this.textInput = ref}
                     onKeyDown={this.handleInputEnter.bind(this)}
                 /> 
