@@ -31,6 +31,7 @@ function renderFullPage(html, initialState) {
                 <title>${config.app_title}</title>
                 <link rel="stylesheet" type="text/css" href="/css/style.css">
                 <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
             </head>
         <body>
         <div id="app">${html}</div>

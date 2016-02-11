@@ -37,7 +37,12 @@ class App extends React.Component {
                 </div>
                 <footer>
                     <div className="content">
-                        <p>Made by <a href="http://keithy.me">Keith Yong</a> 2016</p>
+                        <p>Made without <i className="fa fa-heart"></i> by <a href="http://keithy.me">Keith Yong</a> ©2016</p>
+                        <p>
+                            <a className="icon-link" href="https://github.com/keithyong/todo-list"><i className="fa fa-github fa-2x"></i></a>
+                            <a className="icon-link" href="https://twitter.com/keithyong12"><i className="fa fa-twitter fa-2x"></i></a>
+                            <a className="icon-link" href="mailto:terda12@gmail.com"><i className="fa fa-envelope-o fa-2x"></i></a>
+                        </p>
                     </div>
                 </footer>
             </div>
