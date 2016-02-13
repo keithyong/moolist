@@ -29,6 +29,7 @@ function renderFullPage(html, initialState) {
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <title>${config.app_title}</title>
+                <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
                 <link rel="stylesheet" type="text/css" href="/css/style.css">
                 <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300' rel='stylesheet' type='text/css'>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">

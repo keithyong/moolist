@@ -1,4 +1,4 @@
-drop database if exists todo;
+﻿drop database if exists todo;
 
 create database todo;
 \c todo;
