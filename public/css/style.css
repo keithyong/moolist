@@ -24,7 +24,7 @@ h2 {
 }
 
 header {
-    background: 
+    background:
         url('http://i.imgur.com/DiRyV9q.gif') 50vw 30px no-repeat,
         url('http://i.imgur.com/gcZ30s9.png') center;
     min-height: 200px;
@@ -90,9 +90,11 @@ header {
 
 footer {
     margin-top: 30px;
-    padding-top: 20px;
-    padding-bottom: 30px;
+    padding: 20px 0 20px 0;
     background: #DDD;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 footer, footer a {
@@ -118,7 +120,7 @@ footer a:hover {
     color:#22153E;
     text-shadow:none;
 }
-/* Mozilla based - Gecko Rendering */ 
+/* Mozilla based - Gecko Rendering */
 ::-moz-selection {
     background:#81F7C1;
     color:#22153E;
