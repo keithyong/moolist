@@ -9,7 +9,7 @@ class App extends React.Component {
     render() {
         let todos = this.props.todos.map(
                 todo =>
-                    <Todo 
+                    <Todo
                         key={todo.id}
                         id={todo.id}
                         completed={todo.completed}
@@ -22,21 +22,21 @@ class App extends React.Component {
         )
 
         return (
-            <div>
+            <div className="app">
                 <header>
-                    <div className="content">
+                    <div className="row">
                         <h1>{ config.app_title }</h1>
                         <h2>早くやれよ！</h2>
                     </div>
                 </header>
-                <div className="content">
+                <div className="content row">
                     <TodoTextInput onSubmit={(text) => this.props.dispatch({type: 'ADD_TODO', text: text})} />
                     <div className="todo-list">
                         { todos }
                     </div>
                 </div>
                 <footer>
-                    <div className="content">
+                    <div className="row">
                         <p>Made without <i className="fa fa-heart"></i> by <a href="http://keithy.me">Keith Yong</a> ©2016</p>
                         <p>
                             <a className="icon-link" href="https://github.com/keithyong/todo-list"><i className="fa fa-github fa-2x"></i></a>

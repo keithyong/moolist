@@ -8,6 +8,10 @@ body {
     margin: 0;
 }
 
+.content {
+    min-height: calc(100vh - 100px - 300px);
+}
+
 h1, h2 {
     padding: 10px 0 10px 0;
     color: white;
@@ -32,7 +36,7 @@ header {
     margin-bottom: 20px;
 }
 
-.content {
+.row {
     max-width: 900px;
     margin: 0 auto;
 }
@@ -42,6 +46,7 @@ header {
     background: white;
     border-bottom: 1px solid #eee;
 }
+
 .todo {
     cursor: pointer;
     list-style-type: none;
@@ -89,12 +94,9 @@ header {
 }
 
 footer {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 20px 0 20px 0;
     background: #DDD;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
 }
 
 footer, footer a {

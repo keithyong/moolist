@@ -35,7 +35,7 @@ function renderFullPage(html, initialState) {
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
             </head>
         <body>
-        <div id="app">${html}</div>
+        <div id="react-mount">${html}</div>
         <script>
             window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
         </script>
