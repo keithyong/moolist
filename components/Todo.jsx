@@ -14,6 +14,9 @@ class Todo extends React.Component {
                 className={ "todo " + (this.props.completed ? "completed" : "incomplete") } >
                 {this.props.text}
                 </a>
+                <a>
+                    <i className="fa fa-pencil-square-o-2x"></i>
+                </a>
             </div>
         )
     }

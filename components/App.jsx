@@ -25,8 +25,8 @@ class App extends React.Component {
             <div className="app">
                 <header>
                     <div className="row">
-                        <h1>{ config.app_title }</h1>
-                        <h2>早くやれよ！</h2>
+                        <h1>Hello, Keith</h1>
+                        <h3 className="subtitle">You have finished 125 todo items in the past month. Keep it up!</h3>
                     </div>
                 </header>
                 <div className="content row">

@@ -36,7 +36,8 @@ class TodoTextInput extends React.Component {
                     className="todo-text-input"
                     ref={(ref) => this.textInput = ref}
                     onKeyDown={this.handleInputEnter.bind(this)}
-                /> 
+                    placeholder="Add Todo"
+                />
                 <a onClick={this.handleButtonClick.bind(this)} className="add-todo-btn"><i className="fa fa-plus"></i></a>
             </div>
         )

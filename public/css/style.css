@@ -1,7 +1,7 @@
 html {
     font-family: 'Ubuntu', sans-serif;;
     font-size: 12px;
-    background: #EFEFEF;
+    background: url('http://i.imgur.com/H1BdHbs.png') center;
 }
 
 body {
@@ -9,11 +9,11 @@ body {
 }
 
 .content {
-    min-height: calc(100vh - 100px - 300px);
+    min-height: calc(100vh - 150px);
 }
 
-h1, h2 {
-    padding: 10px 0 10px 0;
+h1, h2, h3 {
+    margin: 10px 0 10px 0;
     color: white;
 }
 
@@ -28,10 +28,6 @@ h2 {
 }
 
 header {
-    background:
-        url('http://i.imgur.com/DiRyV9q.gif') 50vw 30px no-repeat,
-        url('http://i.imgur.com/gcZ30s9.png') center;
-    min-height: 200px;
     padding: 30px;
     margin-bottom: 20px;
 }
@@ -56,12 +52,18 @@ header {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    font-weight: 700;
+    color: #444;
+}
+
+.todo, .todo-text-input {
+    font-size: 1.25rem;
 }
 
 .todo-list {
+    box-sizing: border-box;
     margin-top: 5px;
     margin-bottom: 10px;
+    border-radius: 999px;
 }
 
 .todo.completed {
@@ -74,23 +76,27 @@ header {
 }
 
 .add-todo-btn {
-    font-size: 1.25rem;
     cursor: pointer;
-    padding-left: 5px;
-    padding-top: 5px;
-    color: #666;
+    background-color: #FA6757;
+    border: 0;
+    padding: 13px 15px 13px 15px;
+    color: white;
+    border-radius: 999999px;
+    margin-left: 5px;
+    font-size: 1.25rem;
 }
 
 .add-todo-btn:hover {
-    color: #333;
+    color: #EEE;
 }
 
 .todo-text-input {
-    padding: 5px 10px 5px 10px;
+    padding: 10px;
     width: 200px;
-    font-size: 12px;
     font-family: 'Ubuntu', sans-serif;
     border: 0px;
+    border-radius: 3px;
+    margin-bottom: 10px;
 }
 
 footer {
