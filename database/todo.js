@@ -13,3 +13,9 @@ export function insertTodo(text, callback) {
         callback(err, result.rows)
     })
 }
+
+export function updateTodo(id, text, callback) {
+    query('UPDATE todo SET text = $1 WHERE id = $2', [text, id], (err, result) => {
+        callback(err, result.rows)
+    }) 
+}
