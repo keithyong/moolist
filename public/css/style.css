@@ -37,13 +37,13 @@ header {
     margin: 0 auto;
 }
 
-.todo-wrapper {
+.todo {
     padding: 10px;
     background: white;
     border-bottom: 1px solid #eee;
 }
 
-.todo {
+.todo-text {
     cursor: pointer;
     list-style-type: none;
     -webkit-touch-callout: none;
@@ -53,6 +53,16 @@ header {
     -ms-user-select: none;
     user-select: none;
     color: #444;
+}
+
+.todo-buttons {
+    float: right;
+    font-size: 1.25rem;
+}
+
+.todo-buttons a {
+    cursor: pointer;
+    margin-left: 5px;
 }
 
 .todo, .todo-text-input {

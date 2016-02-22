@@ -5,18 +5,36 @@ class Todo extends React.Component {
         this.props.onToggle(this.props.id)
     }
 
+    handleUpdate() {
+        this.props.onUpdate(this.props.id, 'FILLER TEXT')
+    }
+
+    handleDelete() {
+        this.props.onDelete(this.props.id)
+    }
+
     render() {
         return (
-            <div className="todo-wrapper">
+            <div className={ "todo " + (this.props.completed ? "completed" : "incomplete") }>
                 <a
-                key={this.props.id}
-                onClick={this.handleToggle.bind(this)}
-                className={ "todo " + (this.props.completed ? "completed" : "incomplete") } >
-                {this.props.text}
+                    key={this.props.id}
+                    onClick={this.handleToggle.bind(this)}
+                    className="todo-text"
+                >
+                    {this.props.text}
                 </a>
-                <a>
-                    <i className="fa fa-pencil-square-o-2x"></i>
-                </a>
+                <span className="todo-buttons">
+                    <a
+                        onClick={this.handleUpdate.bind(this)}
+                    >
+                        <i className="fa fa-pencil-square-o"></i>
+                    </a>
+                    <a
+                        onClick={this.handleDelete.bind(this)}
+                    >
+                        <i className="fa fa-trash-o"></i>
+                    </a>
+                </span>
             </div>
         )
     }

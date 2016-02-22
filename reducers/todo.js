@@ -31,7 +31,7 @@ export default function todosReducer(state = [], action) {
                 .end((err, res) => {
                     if (err) console.log(err)
                     else console.log(res)
-                });
+                })
 
             const newState = state.map((todo) => {
                 if (todo.id === action.id) {
@@ -50,6 +50,27 @@ export default function todosReducer(state = [], action) {
             })
 
             return newState
+        case 'UPDATE_TODO':
+            request
+                .post('/updatetodo')
+                .send({
+                    id: action.id,
+                    text: action.text
+                })
+                .set('Content-Type', 'application/json')
+                .end((err, res) => {
+                    if (err) console.log(err)
+                    else console.log(res)
+                })
+            
+             return state.map((todo) => {
+                if (todo.id === action.id) {
+                    todo.text = action.text
+                    return todo
+                }
+                
+                return todo
+            })
         default:
             return state
     }
