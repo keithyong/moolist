@@ -76,9 +76,9 @@ header {
     border-radius: 999px;
 }
 
-.todo.completed {
-    color: #ccc;
-    font-weight: 300;
+.todo.completed,
+.todo.completed .todo-text {
+    color: #CCC;
 }
 
 .todo.incomplete {
