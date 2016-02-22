@@ -13,18 +13,20 @@ export default function todosReducer(state = [], action) {
                 });
             
             // Get the maximum ID from the list of todo's
-            const todoWithMaxId = state.reduce((max, todo) => { 
+            const todoWithMaxId = state.todos.reduce((max, todo) => { 
                 return todo.id > max.id ? todo : max 
             })
 
-            return [
-                {
-                    id: todoWithMaxId.id + 1,
-                    completed: false,
-                    text: action.text
-                },
-                ...state
-            ]
+            return Object.assign({}, state, {
+                todos: [
+                    {
+                        id: todoWithMaxId.id + 1,
+                        completed: false,
+                        text: action.text
+                    },
+                ...state.todos
+                ]
+            })
         case 'TOGGLE_TODO':
             request
                 .post('/check/' + action.id)
@@ -33,23 +35,28 @@ export default function todosReducer(state = [], action) {
                     else console.log(res)
                 })
 
-            const newState = state.map((todo) => {
-                if (todo.id === action.id) {
-                    todo.completed = !todo.completed
-                    return todo
+            return Object.assign({},
+                state,
+                {
+                    finishedCount: state.finishedCount + 1,
+                    todos: state.todos.map((todo) => {
+                        if (todo.id === action.id) {
+                            todo.completed = !todo.completed
+                            return todo
+                        }
+
+                        return todo
+                    }).sort((a, b) => {
+                        // Sort by completed
+                        const greater = a.completed - b.completed
+                        if (greater) return greater
+
+                        // If there is a tie, sort by ID
+                        return b.id - a.id
+                    })
                 }
+            )
 
-                return todo
-            }).sort((a, b) => {
-                // Sort by completed
-                const greater = a.completed - b.completed
-                if (greater) return greater
-
-                // If there is a tie, sort by ID
-                return b.id - a.id
-            })
-
-            return newState
         case 'UPDATE_TODO':
             request
                 .post('/updatetodo')
@@ -63,14 +70,16 @@ export default function todosReducer(state = [], action) {
                     else console.log(res)
                 })
             
-             return state.map((todo) => {
-                if (todo.id === action.id) {
-                    todo.text = action.text
+             return Object.assign({}, state,
+                state.map((todo) => {
+                    if (todo.id === action.id) {
+                        todo.text = action.text
+                        return todo
+                    }
+                    
                     return todo
-                }
-                
-                return todo
-            })
+                })
+            )
         default:
             return state
     }

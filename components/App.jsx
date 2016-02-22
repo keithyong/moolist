@@ -8,17 +8,17 @@ import config from '../config'
 class App extends React.Component {
     render() {
         let todos = this.props.todos.map(
-                todo =>
-                    <Todo
-                        key={todo.id}
-                        id={todo.id}
-                        completed={todo.completed}
-                        text={todo.text}
-                        onToggle={(id) => {
-                                this.props.dispatch({type:'TOGGLE_TODO', id: id})
-                            }
+            todo =>
+                <Todo
+                    key={todo.id}
+                    id={todo.id}
+                    completed={todo.completed}
+                    text={todo.text}
+                    onToggle={(id) => {
+                            this.props.dispatch({type:'TOGGLE_TODO', id: id})
                         }
-                    />
+                    }
+                />
         )
 
         return (
@@ -26,7 +26,7 @@ class App extends React.Component {
                 <header>
                     <div className="row">
                         <h1>Hello, Keith</h1>
-                        <h3 className="subtitle">You have finished 125 todo items in the past month. Keep it up!</h3>
+                        <h3 className="subtitle">You have finished {this.props.finishedCount} todo items. Keep it up!</h3>
                     </div>
                 </header>
                 <div className="content row">
@@ -52,7 +52,8 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        todos: state
+        finishedCount: state.finishedCount,
+        todos: state.todos
     }
 }
 

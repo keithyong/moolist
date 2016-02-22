@@ -51,7 +51,18 @@ app.get('/', (req, res) => {
             pg_err_handler(err, res)
         } else {
             // Make initial state equal to database data
-            initialState = rows
+            initialState = {
+                finishedCount: rows.reduce((finishedCount, todo) => {
+                    if (todo.completed === true) {
+                        return finishedCount + 1
+                    }
+
+                    return finishedCount
+                }, 0)
+                ,
+                todos: rows
+            }
+
             const store = createStore(todoApp, initialState)
             const html = renderToString(
                 <Provider store={store}>
