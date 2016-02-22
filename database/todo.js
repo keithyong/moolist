@@ -1,40 +1,15 @@
 import pg from 'pg'
 import config from '../config'
+import { query } from './query'
 
 export function grabTodos(callback) {
-    pg.connect(config.pg_connection_string, (err, client, done) => {
-        if (err) {
-            console.error(err)
-            callback(err, null)
-            client.end()
-        } else {
-            client.query('SELECT * FROM todo ORDER BY completed, completion_time ASC, id DESC', (err, result) => {
-                if (err) {
-                    pg_err_handler(res, err)
-                } else {
-                    callback(null, result.rows)
-                    client.end()
-                }
-            })
-        }
-    })
+    query('SELECT * FROM todo ORDER BY completed, completion_time ASC, id DESC', (err, result) => {
+        callback(err, result.rows);
+    });
 }
 
 export function insertTodo(text, callback) {
-    pg.connect(config.pg_connection_string, (err, client, done) => {
-        if (err) {
-            console.error(err)
-            callback(err, null)
-            client.end()
-        } else {
-            client.query('INSERT INTO todo(text) VALUES ($1)', [text], (err, result) => {
-                if (err) {
-                    pg_err_handler(res, err)
-                } else {
-                    callback(null, result.rows)
-                    client.end()
-                }
-            })
-        }
+    query('INSERT INTO todo(text) VALUES ($1)', [text], (err, result) => {
+        callback(err, result.rows)
     })
 }
