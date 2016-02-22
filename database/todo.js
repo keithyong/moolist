@@ -19,3 +19,9 @@ export function updateTodo(id, text, callback) {
         callback(err, result.rows)
     }) 
 }
+
+export function checkTodo(id, callback) {
+    query('UPDATE todo SET completion_time = (CASE completed WHEN false THEN now() ELSE null END), completed = NOT completed WHERE todo.id=$1;', [id], (err, result) => {
+        callback(err, result.rows)
+    })
+}

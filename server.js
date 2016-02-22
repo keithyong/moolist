@@ -9,7 +9,6 @@ import todoApp from './reducers/todo'
 import { renderToString } from 'react-dom/server'
 import { grabTodos } from './database/todo'
 import todoRouter from './routes/todoRouter'
-import checkRouter from './routes/checkRouter'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 
@@ -18,7 +17,6 @@ let App = React.createFactory(require('./components/App.jsx').default)
 
 app.use(bodyParser.text())
 app.use(todoRouter)
-app.use(checkRouter)
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'dist')))
 
