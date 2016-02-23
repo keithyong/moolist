@@ -43,6 +43,10 @@ header {
     border-bottom: 1px solid #eee;
 }
 
+.todo:hover~.todo-buttons {
+    color: red;
+}
+
 .todo-text {
     cursor: pointer;
     list-style-type: none;

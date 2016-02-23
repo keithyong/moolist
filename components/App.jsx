@@ -15,7 +15,11 @@ class App extends React.Component {
                     completed={todo.completed}
                     text={todo.text}
                     onToggle={(id) => {
-                            this.props.dispatch({type:'TOGGLE_TODO', id: id})
+                            this.props.dispatch({type: 'TOGGLE_TODO', id: id})
+                        }
+                    }
+                    onUpdate={(id, text) => {
+                            this.props.dispatch({type: 'UPDATE_TODO', id: id, text: text})
                         }
                     }
                 />

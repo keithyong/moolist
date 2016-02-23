@@ -16,6 +16,7 @@ let app = express()
 let App = React.createFactory(require('./components/App.jsx').default)
 
 app.use(bodyParser.text())
+app.use(bodyParser.json())
 app.use(todoRouter)
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'dist')))

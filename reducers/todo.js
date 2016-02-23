@@ -9,7 +9,6 @@ export default function todosReducer(state = [], action) {
                 .set('Content-Type', 'text/plain')
                 .end((err, res) => {
                     if (err) console.log(err)
-                    else console.log(res)
                 });
             
             // Get the maximum ID from the list of todo's
@@ -27,20 +26,19 @@ export default function todosReducer(state = [], action) {
                 ...state.todos
                 ]
             })
+
         case 'TOGGLE_TODO':
             request
                 .post('/check/' + action.id)
                 .end((err, res) => {
                     if (err) console.log(err)
-                    else console.log(res)
                 })
 
-            return Object.assign({},
-                state,
-                {
-                    finishedCount: state.finishedCount + 1,
-                    todos: state.todos.map((todo) => {
+            let newFinishedCount = state.finishedCount
+
+            const newTodos = state.todos.map((todo) => {
                         if (todo.id === action.id) {
+                            newFinishedCount = todo.completed ? newFinishedCount + 1 : newFinishedCount - 1
                             todo.completed = !todo.completed
                             return todo
                         }
@@ -54,6 +52,12 @@ export default function todosReducer(state = [], action) {
                         // If there is a tie, sort by ID
                         return b.id - a.id
                     })
+
+            return Object.assign({},
+                state,
+                {
+                    finishedCount: newFinishedCount,
+                    todos: newTodos
                 }
             )
 
@@ -67,18 +71,19 @@ export default function todosReducer(state = [], action) {
                 .set('Content-Type', 'application/json')
                 .end((err, res) => {
                     if (err) console.log(err)
-                    else console.log(res)
                 })
             
              return Object.assign({}, state,
-                state.map((todo) => {
-                    if (todo.id === action.id) {
-                        todo.text = action.text
-                        return todo
-                    }
-                    
-                    return todo
-                })
+                 {
+                     todos: state.todos.map((todo) => {
+                         if (todo.id === action.id) {
+                             todo.text = action.text
+                             return todo
+                         }
+
+                         return todo
+                     })
+                 }
             )
         default:
             return state
