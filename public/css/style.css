@@ -112,7 +112,7 @@ header {
 
 .todo.isEditing .edit-button i {
     transition: all 0.2s ease-in-out;
-    color: #3DB1FF;
+    color: #3498DB;
     transform: rotate(45deg);
 }
 

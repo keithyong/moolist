@@ -38,7 +38,7 @@ export default function todosReducer(state = [], action) {
 
             const newTodos = state.todos.map((todo) => {
                         if (todo.id === action.id) {
-                            newFinishedCount = todo.completed ? newFinishedCount + 1 : newFinishedCount - 1
+                            newFinishedCount = todo.completed ? newFinishedCount - 1 : newFinishedCount + 1
                             todo.completed = !todo.completed
                             return todo
                         }
