@@ -12,6 +12,7 @@ class Todo extends React.Component {
 
     handleEditButtonPress() {
         this.setState({ isEditing: !this.state.isEditing })
+        console.log(this.textInput)
     }
 
     handleUpdate() {
@@ -30,18 +31,19 @@ class Todo extends React.Component {
     render() {
         const textComponent = (() => {
             if (this.state.isEditing === false) {
-               return (<a
-                        key={this.props.id}
-                        onClick={this.handleToggle.bind(this)}
-                        className="todo-text"
-                    >
-                        {this.props.text}
-                    </a>)
+                return (<a
+                            key={this.props.id}
+                            onClick={this.handleToggle.bind(this)}
+                            className="todo-text"
+                        >
+                            {this.props.text}
+                        </a>)
             } else {
                 return (<span>
-                            <input 
+                            <label className="edit-label">EDIT</label>
+                            <input
                                 ref={(ref) => this.textInput = ref}
-                                defaultValue={this.props.text} 
+                                defaultValue={this.props.text}
                                 className="todo-edit-field"
                             ></input>
                             <button
@@ -59,18 +61,20 @@ class Todo extends React.Component {
         })()
 
         return (
-            <div className={ "todo " + (this.props.completed ? "completed" : "incomplete") }>
+            <div className={ "todo " + (this.props.completed ? "completed" : "incomplete") + (this.state.isEditing ? " isEditing" : "") }>
                 { textComponent }
                 <span className="todo-buttons">
                     <a
+                        className="edit-button"
                         onClick={this.handleEditButtonPress.bind(this)}
                     >
-                        <i className="fa fa-pencil-square-o"></i>
+                        <i className="fa fa-pencil"></i>
                     </a>
                     <a
+                        className="delete-button"
                         onClick={this.handleDelete.bind(this)}
                     >
-                        <i className="fa fa-trash-o"></i>
+                        <i className="fa fa-times"></i>
                     </a>
                 </span>
             </div>

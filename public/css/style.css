@@ -1,5 +1,12 @@
-html {
+* {
+    box-sizing: border-box;
+}
+
+html, input {
     font-family: 'Ubuntu', sans-serif;;
+}
+
+html {
     font-size: 12px;
     background: url('http://i.imgur.com/H1BdHbs.png') center;
 }
@@ -60,13 +67,40 @@ header {
 }
 
 .todo-buttons {
+    position: relative;
     float: right;
     font-size: 1.25rem;
+    color: #777;
 }
 
 .todo-buttons a {
     cursor: pointer;
-    margin-left: 5px;
+    padding: 5px;
+    margin: 0;
+}
+
+.todo-edit-field {
+    border: 0px;
+    color: #444;
+    font-size: 1.25rem;
+    padding: 0px 0 4px 0;
+    border-bottom: 2px solid white;
+    background: none;
+    outline: none;
+}
+
+.edit-label {
+    display: block;
+    font-size: .75rem;
+}
+
+.todo.isEditing {
+    padding-bottom: 5px;
+    background: #3E606F;
+}
+
+.todo.isEditing * {
+    color: white;
 }
 
 .todo, .todo-text-input {
@@ -81,7 +115,8 @@ header {
 }
 
 .todo.completed,
-.todo.completed .todo-text {
+.todo.completed .todo-text,
+.todo.completed .todo-buttons {
     color: #CCC;
 }
 
