@@ -11,11 +11,21 @@ class EditInput extends React.Component {
     }
 
     handleSave() {
-        this.props.onSave(this.editInput.value)
+        this.props.onSave(this.editInput.value.trim())
     }
 
     handleCancel() {
         this.props.onCancel()
+    }
+
+    handleInputEnter(e) {
+        if (this.editInput.value === '') {
+            return;
+        }
+
+        if (e.which === 13) {
+            this.props.onSave(this.editInput.value.trim())
+        }
     }
 
     render() {
@@ -26,6 +36,7 @@ class EditInput extends React.Component {
                     ref={(ref) => this.editInput = ref}
                     defaultValue={this.props.defaultValue}
                     className="todo-edit-field"
+                    onKeyDown={this.handleInputEnter.bind(this)}
                 ></input>
                 <button
                     onClick={this.handleSave.bind(this)}

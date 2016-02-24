@@ -2,12 +2,16 @@
     box-sizing: border-box;
 }
 
-html, input {
-    font-family: 'Ubuntu', sans-serif;;
+a, button {
+    cursor: pointer
+}
+
+html, input, button {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
 }
 
 html {
-    font-size: 12px;
     background: url('http://i.imgur.com/H1BdHbs.png') center;
 }
 
@@ -87,6 +91,7 @@ header {
     border-bottom: 2px solid white;
     background: none;
     outline: none;
+    min-width: 300px;
 }
 
 .edit-label {
@@ -98,10 +103,19 @@ header {
     padding-bottom: 5px;
     transition: background-color 0.2s ease;
     background-color: #3E606F;
+    border-bottom: none;
 }
 
 .todo.isEditing * {
     color: white;
+}
+
+.todo.isEditing button {
+    padding: 5px;
+    background: none;
+    border: 2px solid white;
+    margin-left: 5px;
+    border-radius: 4px;
 }
 
 .todo, .todo-text-input {
