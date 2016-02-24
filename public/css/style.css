@@ -96,7 +96,8 @@ header {
 
 .todo.isEditing {
     padding-bottom: 5px;
-    background: #3E606F;
+    transition: background-color 0.2s ease;
+    background-color: #3E606F;
 }
 
 .todo.isEditing * {

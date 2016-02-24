@@ -73,6 +73,7 @@ export default function todosReducer(state = [], action) {
                     if (err) console.log(err)
                 })
             
+             console.log('UPDATING TODO!')
              return Object.assign({}, state,
                  {
                      todos: state.todos.map((todo) => {

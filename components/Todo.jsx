@@ -1,4 +1,5 @@
 import React from 'react'
+import EditInput from './EditInput.jsx'
 
 class Todo extends React.Component {
     constructor(props) {
@@ -12,12 +13,12 @@ class Todo extends React.Component {
 
     handleEditButtonPress() {
         this.setState({ isEditing: !this.state.isEditing })
-        console.log(this.textInput)
     }
 
-    handleUpdate() {
+    handleSave(newValue) {
         this.setState({ isEditing: false })
-        this.props.onUpdate(this.props.id, this.textInput.value)
+        console.log(newValue)
+        this.props.onUpdate(this.props.id, newValue)
     }
 
     handleCancel() {
@@ -39,24 +40,11 @@ class Todo extends React.Component {
                             {this.props.text}
                         </a>)
             } else {
-                return (<span>
-                            <label className="edit-label">EDIT</label>
-                            <input
-                                ref={(ref) => this.textInput = ref}
-                                defaultValue={this.props.text}
-                                className="todo-edit-field"
-                            ></input>
-                            <button
-                                onClick={this.handleUpdate.bind(this)}
-                            >
-                                Save
-                            </button>
-                            <button
-                                onClick={this.handleCancel.bind(this)}
-                            >
-                                Cancel
-                            </button>
-                        </span>)
+                return <EditInput
+                            defaultValue={this.props.text}
+                            onSave={this.handleSave.bind(this)}
+                            onCancel={this.handleCancel.bind(this)}
+                       />
             }
         })()
 
