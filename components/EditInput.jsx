@@ -41,12 +41,12 @@ class EditInput extends React.Component {
                 <button
                     onClick={this.handleSave.bind(this)}
                 >
-                    Save
+                    SAVE
                 </button>
                 <button
                     onClick={this.handleCancel.bind(this)}
                 >
-                    Cancel
+                    CANCEL
                 </button>
             </span>
         )

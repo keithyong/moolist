@@ -110,12 +110,29 @@ header {
     color: white;
 }
 
+.todo.isEditing .edit-button i {
+    transition: all 0.2s ease-in-out;
+    color: #3DB1FF;
+    transform: rotate(45deg);
+}
+
+.todo.isEditing .delete-button i {
+    color: #E74C3C;
+}
 .todo.isEditing button {
-    padding: 5px;
+    font-size: 0.75rem;
+    padding: 7px 17px 7px 17px;
+    max-width: 200px;
+    text-transform: capitalize;
     background: none;
     border: 2px solid white;
-    margin-left: 5px;
+    margin-left: 9px;
     border-radius: 4px;
+}
+
+.todo.isEditing button:hover {
+    background: white;
+    color: #3E606F;
 }
 
 .todo, .todo-text-input {
